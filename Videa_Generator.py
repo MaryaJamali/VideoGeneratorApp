@@ -142,7 +142,37 @@ def generate_video():
     if not (image_path and profile_image_path and audio_path and output_dir and text and username):
         messagebox.showerror("Input Error", "Please fill in all fields and select all files.")
         return  # Exit function if any field or file is missing
+# Create the main window
+root = tk.Tk()  # Create tkinter root window
+root.title("Video Generator")  # Set window title
 
+# Initialize variables for file paths and default colors
+image_path = None
+profile_image_path = None
+audio_path = None
+output_dir = None
+text_color = "white"
+profile_text_color = "white"
+
+# Create buttons and labels for selecting files and inputs
+tk.Button(root, text="Select Image", command=select_image).pack(pady=10)
+image_label = tk.Label(root, text="No Image Selected", wraplength=300)
+image_label.pack()
+
+# Create button to select profile image file and associate it with select_profile_image function
+tk.Button(root, text="Select Profile Image", command=select_profile_image).pack(pady=10)
+profile_label = tk.Label(root, text="No Profile Image Selected", wraplength=300)
+profile_label.pack()
+
+# Create button to select audio file and associate it with select_audio function
+tk.Button(root, text="Select Audio", command=select_audio).pack(pady=10)
+audio_label = tk.Label(root, text="No Audio Selected", wraplength=300)
+audio_label.pack()
+
+# Label and entry for user to enter text
+tk.Label(root, text="Enter Text:", font=("Arial", 12)).pack()
+text_entry = tk.Entry(root, font=("Arial", 12))
+text_entry.pack(pady=5)
     output_path = f"{output_dir}/output_video.mp4"  # Define output file path
     create_video(image_path, profile_image_path, audio_path, text, username, text_color, profile_text_color,
                  output_path)  # Call create_video function with all parameters to generate video
