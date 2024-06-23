@@ -9,6 +9,8 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 # Function to open a file dialog and return the selected file path
 def select_file(file_type):
     return filedialog.askopenfilename(title=f"Select {file_type}", filetypes=[(file_type, "*.*")])
+
+
 # Function to create a circular profile image from the given profile image path
 def create_circular_profile_image(profile_image_path):
     profile_image = Image.open(profile_image_path).convert("RGBA")  # Open image and convert to RGBA mode
@@ -21,6 +23,8 @@ def create_circular_profile_image(profile_image_path):
     output = ImageOps.fit(profile_image, mask.size, centering=(0.5, 0.5))  # Fit the profile image to the mask size
     output.putalpha(mask)  # Apply the mask again to ensure transparency
     return output  # Return the processed circular profile image
+
+
 # Function to wrap text to fit within a certain width
 def wrap_text(text, width):
     lines = []  # Initialize an empty list for lines of text
@@ -33,6 +37,8 @@ def wrap_text(text, width):
     if len(text) > 0:
         lines.append(text.strip())  # Append the last part of the text
     return lines  # Return the wrapped lines of text
+
+
 # Function to create a video from the given inputs
 def create_video(image_path, profile_image_path, audio_path, text, username, text_color, profile_text_color,
                  output_path):
@@ -101,39 +107,53 @@ def create_video(image_path, profile_image_path, audio_path, text, username, tex
     os.remove(temp_image_path)
 
     messagebox.showinfo("Success", "Video has been created successfully!")
+
+
 # Function to select an image file and update the label
 def select_image():
     global image_path  # Declare global variable for image path
     image_path = select_file("Image")  # Call select_file function to get image file path
     image_label.config(text=f"Image: {image_path}")  # Update label text with selected image file path
+
+
 # Function to select a profile image file and update the label
 def select_profile_image():
     global profile_image_path  # Declare global variable for profile image path
     profile_image_path = select_file("Profile Image")  # Call select_file function to get profile image file path
     # Update label text with selected profile image file path
     profile_label.config(text=f"Profile Image: {profile_image_path}")
-    # Function to select an audio file and update the label
+
+
+# Function to select an audio file and update the label
 def select_audio():
     global audio_path  # Declare global variable for audio file path
     audio_path = select_file("Audio")  # Call select_file function to get audio file path
     audio_label.config(text=f"Audio: {audio_path}")  # Update label text with selected audio file path
+
+
 # Function to select an output directory and update the label
 def select_output_dir():
     global output_dir  # Declare global variable for output directory path
     output_dir = filedialog.askdirectory(title="Select Output Directory")  # Call filedialog to select output directory
     output_label.config(text=f"Output Directory: {output_dir}")  # Update label text with selected output directory path
+
+
 # Function to choose text color using color chooser dialog
 def choose_text_color():
     global text_color  # Declare global variable for text color
     color = askcolor(title="Choose Text Color")[1]  # Call askcolor function to choose color
     text_color = color  # Update text color variable with selected color
     text_color_label.config(bg=color)  # Update label background color with selected color
+
+
 # Function to choose profile text color using color chooser dialog
 def choose_profile_text_color():
     global profile_text_color  # Declare global variable for profile text color
     color = askcolor(title="Choose Profile Text Color")[1]  # Call askcolor function to choose color
     profile_text_color = color  # Update profile text color variable with selected color
     profile_text_color_label.config(bg=color)  # Update label background color with selected color
+
+
 # Function to generate video using user inputs
 def generate_video():
     text = text_entry.get()  # Get text entered by user
@@ -142,6 +162,12 @@ def generate_video():
     if not (image_path and profile_image_path and audio_path and output_dir and text and username):
         messagebox.showerror("Input Error", "Please fill in all fields and select all files.")
         return  # Exit function if any field or file is missing
+
+    output_path = f"{output_dir}/output_video.mp4"  # Define output file path
+    create_video(image_path, profile_image_path, audio_path, text, username, text_color, profile_text_color,
+                 output_path)  # Call create_video function with all parameters to generate video
+
+
 # Create the main window
 root = tk.Tk()  # Create tkinter root window
 root.title("Video Generator")  # Set window title
@@ -200,3 +226,7 @@ generate_button = tk.Button(root, text="Generate Video", command=generate_video,
 generate_button.pack(pady=20, ipadx=20, ipady=10)
 
 root.mainloop()  # Start the tkinter main loop to display the GUI
+
+# Name of the programmer: Maryam Jamali
+# Email address: m.jamali16@yahoo.com
+# GitHub address: https://github.com/MaryaJamali
