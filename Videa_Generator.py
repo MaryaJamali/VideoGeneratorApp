@@ -106,3 +106,10 @@ def select_image():
     global image_path  # Declare global variable for image path
     image_path = select_file("Image")  # Call select_file function to get image file path
     image_label.config(text=f"Image: {image_path}")  # Update label text with selected image file path
+# Function to select a profile image file and update the label
+def select_profile_image():
+    global profile_image_path  # Declare global variable for profile image path
+    profile_image_path = select_file("Profile Image")  # Call select_file function to get profile image file path
+    # Update label text with selected profile image file path
+    profile_label.config(text=f"Profile Image: {profile_image_path}")
+    
