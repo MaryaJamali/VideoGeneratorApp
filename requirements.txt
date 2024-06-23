@@ -1,0 +1,3 @@
+pillow==10.2.0
+moviepy==1.0.3
+tkinter ----->  tkinter should be installed with Python by default
