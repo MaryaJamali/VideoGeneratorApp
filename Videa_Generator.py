@@ -173,6 +173,30 @@ audio_label.pack()
 tk.Label(root, text="Enter Text:", font=("Arial", 12)).pack()
 text_entry = tk.Entry(root, font=("Arial", 12))
 text_entry.pack(pady=5)
-    output_path = f"{output_dir}/output_video.mp4"  # Define output file path
-    create_video(image_path, profile_image_path, audio_path, text, username, text_color, profile_text_color,
-                 output_path)  # Call create_video function with all parameters to generate video
+
+# Button to choose text color and associate it with choose_text_color function
+tk.Button(root, text="Choose Text Color", command=choose_text_color).pack(pady=10)
+text_color_label = tk.Label(root, text="Choose Text Color", bg=text_color)
+text_color_label.pack()
+
+# Label and entry for user to enter username
+tk.Label(root, text="Enter Username:", font=("Arial", 12)).pack()
+username_entry = tk.Entry(root, font=("Arial", 12))
+username_entry.pack(pady=5)
+
+# Button to choose profile text color and associate it with choose_profile_text_color function
+tk.Button(root, text="Choose Profile Text Color", command=choose_profile_text_color).pack(pady=10)
+profile_text_color_label = tk.Label(root, text="Choose Profile Text Color", bg=profile_text_color)
+profile_text_color_label.pack()
+
+# Button to select output directory and associate it with select_output_dir function
+tk.Button(root, text="Select Output Directory", command=select_output_dir).pack(pady=10)
+output_label = tk.Label(root, text="No Output Directory Selected", wraplength=300)
+output_label.pack()
+
+# Button to generate video and associate it with generate_video function
+generate_button = tk.Button(root, text="Generate Video", command=generate_video, font=("Arial", 14), bg="blue",
+                            fg="white")
+generate_button.pack(pady=20, ipadx=20, ipady=10)
+
+root.mainloop()  # Start the tkinter main loop to display the GUI
