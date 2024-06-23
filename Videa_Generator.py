@@ -122,4 +122,9 @@ def select_output_dir():
     global output_dir  # Declare global variable for output directory path
     output_dir = filedialog.askdirectory(title="Select Output Directory")  # Call filedialog to select output directory
     output_label.config(text=f"Output Directory: {output_dir}")  # Update label text with selected output directory path
-
+# Function to choose text color using color chooser dialog
+def choose_text_color():
+    global text_color  # Declare global variable for text color
+    color = askcolor(title="Choose Text Color")[1]  # Call askcolor function to choose color
+    text_color = color  # Update text color variable with selected color
+    text_color_label.config(bg=color)  # Update label background color with selected color
