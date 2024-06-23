@@ -21,3 +21,15 @@ def create_circular_profile_image(profile_image_path):
     output = ImageOps.fit(profile_image, mask.size, centering=(0.5, 0.5))  # Fit the profile image to the mask size
     output.putalpha(mask)  # Apply the mask again to ensure transparency
     return output  # Return the processed circular profile image
+# Function to wrap text to fit within a certain width
+def wrap_text(text, width):
+    lines = []  # Initialize an empty list for lines of text
+    while len(text) > width:
+        split_index = text.rfind(" ", 0, width)  # Find the index of the last space within the width
+        if split_index == -1:
+            split_index = width  # If no space found, split at the exact width
+        lines.append(text[:split_index].strip())  # Append the line to the list
+        text = text[split_index:].strip()  # Update text to the remaining part
+    if len(text) > 0:
+        lines.append(text.strip())  # Append the last part of the text
+    return lines  # Return the wrapped lines of text
