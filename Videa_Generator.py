@@ -117,5 +117,9 @@ def select_audio():
     global audio_path  # Declare global variable for audio file path
     audio_path = select_file("Audio")  # Call select_file function to get audio file path
     audio_label.config(text=f"Audio: {audio_path}")  # Update label text with selected audio file path
-
+# Function to select an output directory and update the label
+def select_output_dir():
+    global output_dir  # Declare global variable for output directory path
+    output_dir = filedialog.askdirectory(title="Select Output Directory")  # Call filedialog to select output directory
+    output_label.config(text=f"Output Directory: {output_dir}")  # Update label text with selected output directory path
 
