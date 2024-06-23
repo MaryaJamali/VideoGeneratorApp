@@ -134,3 +134,15 @@ def choose_profile_text_color():
     color = askcolor(title="Choose Profile Text Color")[1]  # Call askcolor function to choose color
     profile_text_color = color  # Update profile text color variable with selected color
     profile_text_color_label.config(bg=color)  # Update label background color with selected color
+# Function to generate video using user inputs
+def generate_video():
+    text = text_entry.get()  # Get text entered by user
+    username = username_entry.get()  # Get username entered by user
+    # Check if all necessary fields are filled and files are selected
+    if not (image_path and profile_image_path and audio_path and output_dir and text and username):
+        messagebox.showerror("Input Error", "Please fill in all fields and select all files.")
+        return  # Exit function if any field or file is missing
+
+    output_path = f"{output_dir}/output_video.mp4"  # Define output file path
+    create_video(image_path, profile_image_path, audio_path, text, username, text_color, profile_text_color,
+                 output_path)  # Call create_video function with all parameters to generate video
