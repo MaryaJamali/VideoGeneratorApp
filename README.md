@@ -14,6 +14,7 @@ This project is a video generation tool that allows you to create a personalized
   - `tkinter`
   - `moviepy`
   - `Pillow`
+
 <br>⭐ You can install the required libraries using pip : ```pip install tkinter moviepy Pillow```
 ## Installation
 1. Clone the repository : ``` git clone https://github.com/MaryaJamali/VideoGeneratorApp.git```
@@ -23,14 +24,14 @@ This project is a video generation tool that allows you to create a personalized
 ## Using the application
 ⭐ Use the GUI to enter information and select files :<br>
 A 👉 Click the "Choose Image" button and select your background image.<br>
-A 👉 Click the "Choose Profile Picture" button and select your profile picture.<br>
-A 👉 Click the "Select Audio" button and select your audio file.<br>
-A 👉 Enter your text in the "Enter Text" field.<br>
-A 👉 Click the "Select Text Color" button and select your text color.<br>
-A 👉 Enter your username in the "Enter Username" field.<br>
-A 👉 Click the "Choose profile text color" button and choose your profile text color.<br>
-A 👉 Click the "Choose output directory" button and select a directory to save the video.<br>
-A 👉 Finally, click the "Generate Video" button to create and save the video.the final video will be saved in the selected directory with the name output_video.mp4.<br>
+B 👉 Click the "Choose Profile Picture" button and select your profile picture.<br>
+C 👉 Click the "Select Audio" button and select your audio file.<br>
+D 👉 Enter your text in the "Enter Text" field.<br>
+E 👉 Click the "Select Text Color" button and select your text color.<br>
+F 👉 Enter your username in the "Enter Username" field.<br>
+G 👉 Click the "Choose profile text color" button and choose your profile text color.<br>
+H 👉 Click the "Choose output directory" button and select a directory to save the video.<br>
+I 👉 Finally, click the "Generate Video" button to create and save the video.the final video will be saved in the selected directory with the name output_video.mp4.<br>
 ## Files
 🔶 videa_generator.py : The main Python file containing the application code.<br>
 🔶 requirements.txt : List of required Python packages.<br>
