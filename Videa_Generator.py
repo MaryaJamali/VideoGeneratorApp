@@ -101,3 +101,8 @@ def create_video(image_path, profile_image_path, audio_path, text, username, tex
     os.remove(temp_image_path)
 
     messagebox.showinfo("Success", "Video has been created successfully!")
+# Function to select an image file and update the label
+def select_image():
+    global image_path  # Declare global variable for image path
+    image_path = select_file("Image")  # Call select_file function to get image file path
+    image_label.config(text=f"Image: {image_path}")  # Update label text with selected image file path
