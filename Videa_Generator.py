@@ -112,4 +112,10 @@ def select_profile_image():
     profile_image_path = select_file("Profile Image")  # Call select_file function to get profile image file path
     # Update label text with selected profile image file path
     profile_label.config(text=f"Profile Image: {profile_image_path}")
-    
+    # Function to select an audio file and update the label
+def select_audio():
+    global audio_path  # Declare global variable for audio file path
+    audio_path = select_file("Audio")  # Call select_file function to get audio file path
+    audio_label.config(text=f"Audio: {audio_path}")  # Update label text with selected audio file path
+
+
