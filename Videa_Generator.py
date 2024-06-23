@@ -128,3 +128,9 @@ def choose_text_color():
     color = askcolor(title="Choose Text Color")[1]  # Call askcolor function to choose color
     text_color = color  # Update text color variable with selected color
     text_color_label.config(bg=color)  # Update label background color with selected color
+# Function to choose profile text color using color chooser dialog
+def choose_profile_text_color():
+    global profile_text_color  # Declare global variable for profile text color
+    color = askcolor(title="Choose Profile Text Color")[1]  # Call askcolor function to choose color
+    profile_text_color = color  # Update profile text color variable with selected color
+    profile_text_color_label.config(bg=color)  # Update label background color with selected color
